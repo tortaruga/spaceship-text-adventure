@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,400i,700");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: repeating-linear-gradient(to top, #3a3a3a, transparent) 0 0 / 5px 5px, radial-gradient(circle at 50% 10%, #2c5e72, #304141, #2d3f41, #257691), #838383;
+  color:#18FFFF;
+  text-shadow: 0 0 5px #80DEEA;
+  font-family: inconsolata;
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+#message {
+    width: clamp(30rem, 70%, 15rem); 
+    border:.1rem solid;
+    border-radius: .4rem;
+    padding: 3rem; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px #80DEEA;
+  background: #07afaf75;
+  line-height: 1.4;
+  letter-spacing: .08rem;
+  min-height: 15rem;
+}
+
+
+.btns {
+  display: flex; 
+  justify-content: center;
+  gap: .5rem; 
+  margin-block-start: 1.5rem;
+  padding: 1.5rem .5rem; 
+  width: clamp(30rem, 90%, 15rem);
+  flex-wrap: wrap;
+ }
+
+button:hover {
+  cursor: pointer;
+  background:  #80DEEA
+}
+
+button {
+  font-family: inconsolata;
+  font-weight:bold;
+  background:#18FFFF;
+  padding: .7rem 1.5rem;
+  border-radius: .2rem; 
+  border: none;
+  flex: 1;
+  flex-basis: 10rem;
+  line-height: 1.4;
+  letter-spacing: .08rem;
+}
+
+.hide {
+    display: none;
+}
+
+@media screen and (max-width: 32rem) {
+   #message, .btns {
+    width: 100%;
+   }   
+}
