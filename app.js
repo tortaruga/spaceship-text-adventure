@@ -2,6 +2,46 @@ const message = document.getElementById('message');
 const btnOne =  document.querySelector('.btn-one');
 const btns =  document.querySelector('.btns');
 
+// flickering underscore effect
+
+let underscore = document.createElement('span');
+
+const paragraphs = message.children;
+
+function addUnderscore() {
+    underscore.textContent = '_';
+    paragraphs[paragraphs.length - 1].appendChild(underscore);
+    }
+
+// appearing text effect
+
+let delay;
+ 
+function textEffect() {
+  addUnderscore();
+  delay = 0;
+
+  Array.from(paragraphs).forEach(p => {
+
+    const letters = p.textContent.trim().split('');
+    // this line NEEDS to be after letters has been declared
+    // the comment is for my dumb self cause i wasted twenty miinutes on it
+    // and next time i'll forget and waste another 20
+    p.innerHTML = ''; 
+
+  letters.forEach(letter => {
+    const span = document.createElement('span');
+    span.innerHTML = letter;
+    span.classList.add('appear');
+    delay += .03;
+    span.style.animationDelay = delay + 's';
+    p.appendChild(span); 
+  })   
+  }) 
+
+  paragraphs[paragraphs.length - 1].lastElementChild.classList.add('flicker');
+}
+    
 // initial setup
 let btnTwo;
 let btnThree;
@@ -28,6 +68,7 @@ function initialSetup() {
     hideBtn(btnThree);
 
     btnOne.onclick = instructionOne;
+    textEffect();
 }
 
 initialSetup();
@@ -530,6 +571,7 @@ function answer(index) {
  handleBtn(index, btnTwo, 1);
  handleBtn(index, btnThree, 2);
 
+ textEffect();
 }
 
 // there has to be a better way to do this...
@@ -805,4 +847,5 @@ function initialMessageState() {
     btnOne.innerHTML = '...';
     btnOne.onclick = instructionOne;
     message.innerHTML = '<p>You\'re late. Where have you been?</p>';
+    textEffect();
 }

@@ -70,8 +70,39 @@ button {
     display: none;
 }
 
+.appear {
+  animation: appear .03s backwards;
+}
+
+
+.flicker {
+  animation: flicker .7s infinite,
+              appear .03s backwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes flicker {
+  0%, 100% {
+      opacity: 1;
+  }
+
+  50% {
+      opacity: 0;
+  }
+}
+
 @media screen and (max-width: 32rem) {
    #message, .btns {
     width: 100%;
    }   
 }
+
